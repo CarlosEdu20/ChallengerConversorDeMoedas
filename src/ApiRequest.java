@@ -11,10 +11,6 @@ import java.net.http.HttpResponse;
 public class ApiRequest {
 
 
-    public void pegarMoedas(String moeda) throws IOException {
-        String paisMoeda = moeda;
-
-    }
     public Coins getCoins(Double valor, String moedaPais) throws InterruptedException {
         Coins coins = new Coins();
         String api = "https://v6.exchangerate-api.com/v6/";
