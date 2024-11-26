@@ -28,20 +28,59 @@ public class Main {
 
                 switch (opcao) {
                     case 1:
-                        System.out.println("Digite um valor que deseja converter: ");
+
+                        System.out.println("Digite  um valor que deseja converter: ");
                         valor = ler.nextDouble();
-                        Coins coins = apiRequest.getCoins(valor);
+                        Coins coins = apiRequest.getCoins(valor, "USD");
                         valorConvertido = valor * coins.getARS();
-                        System.out.println("Valor convertido: " + valorConvertido);
+                        System.out.println("Valor " + valor +" [USD] corresponde ao valor final de =>>> " + valorConvertido + " [ARS]");
+
                         break;
 
                     case 2:
                         System.out.println("Digite um valor que deseja converter: ");
                         valor = ler.nextDouble();
-                        coins = apiRequest.getCoins(valor);
-                        valorConvertido = coins.getARS() * valor;
-                        System.out.println("Valor convertido: " + valorConvertido);
+                        coins = apiRequest.getCoins(valor, "ARS");
+                        valorConvertido =  valor * coins.getUSD();
+                        System.out.println("Valor " + valor +" [ARS] corresponde ao valor final de =>>> " + valorConvertido + " [USD]");
                         break;
+
+
+                    case 3:
+                        System.out.println("Digite um valor que deseja converter: ");
+                        valor = ler.nextDouble();
+                        coins = apiRequest.getCoins(valor, "USD");
+                        valorConvertido =  valor * coins.getBRL();
+                        System.out.println("Valor " + valor +" [USD] corresponde ao valor final de =>>> " + valorConvertido + " [BRL]");
+                        break;
+
+                    case 4:
+                        System.out.println("Digite um valor que deseja converter: ");
+                        valor = ler.nextDouble();
+                        coins = apiRequest.getCoins(valor, "BRL");
+                        valorConvertido =  valor *  coins.getUSD();
+                        System.out.println("Valor " + valor +" [BRL] corresponde ao valor final de =>>> " + valorConvertido + " [USD]");
+                        break;
+
+                    case 5:
+                        System.out.println("Digite um valor que deseja converter: ");
+                        valor = ler.nextDouble();
+                        coins = apiRequest.getCoins(valor, "USD");
+                        valorConvertido = valor * coins.getCOP();
+                        System.out.println("Valor " + valor +" [USD] corresponde ao valor final de =>>> " + valorConvertido + " [COP]");
+                        break;
+
+                    case 6:
+                        System.out.println("Digite um valor que deseja converter: ");
+                        valor = ler.nextDouble();
+                        coins = apiRequest.getCoins(valor, "COP");
+                        valorConvertido = valor * coins.getUSD();
+                        System.out.println("Valor " + valor +" [COP] corresponde ao valor final de =>>> " + valorConvertido + " [USD]");
+                        break;
+
+
+
+
 
 
 

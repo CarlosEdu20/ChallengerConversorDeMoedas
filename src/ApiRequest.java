@@ -9,20 +9,29 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ApiRequest {
-    public Coins getCoins(Double valor) throws InterruptedException {
-        Coins coins = null;
+
+
+    public void pegarMoedas(String moeda) throws IOException {
+        String paisMoeda = moeda;
+
+    }
+    public Coins getCoins(Double valor, String moedaPais) throws InterruptedException {
+        Coins coins = new Coins();
         String api = "https://v6.exchangerate-api.com/v6/";
         String apiKey = "889d2edce5e8480bc787616c";
         try {
+
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(api + apiKey + "/latest/USD"))
+                    .uri(URI.create(api + apiKey + "/latest/" + moedaPais))
                     .build();
+
+
 
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             Gson gson = new Gson();
-            coins = new Coins();
+
             JsonObject jsonObject = gson.fromJson(response.body(), JsonObject.class);
             JsonObject conversionRates = jsonObject.getAsJsonObject("conversion_rates");
             coins.setUSD(conversionRates.get("USD").getAsDouble());
