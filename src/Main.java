@@ -7,8 +7,6 @@ public class Main {
 
         int opcao = 0;
         double valor, valorConvertido;
-
-
         try {
             while (opcao != 7) {
                 System.out.println("*********************************************************");
@@ -77,10 +75,6 @@ public class Main {
                         valorConvertido = valor * coins.getUSD();
                         System.out.println("Valor " + valor +" [COP] corresponde ao valor final de =>>> " + valorConvertido + " [USD]");
                         break;
-
-
-
-
 
 
 
